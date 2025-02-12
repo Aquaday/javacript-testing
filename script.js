@@ -20,11 +20,8 @@ function save() {
 
 
 
-let card1 = 10
-let card2 = 10
-let cards = [card1, card2]
-let sum = card1 + card2
-let isAlive = true
+let cards = []
+let sum = 0
 let hasBlackJack = false
 let message = ""
 
@@ -37,8 +34,21 @@ let messageUnder = "Would you like to draw another card?"
 let messageWon = "Congratz, you have BlackJack!"
 let messageOver = "You lost!!!"
 
+function getRandomCard() {
+    let randomCard = Math.floor(Math.random()*13) + 1
+    if (randomCard === 1) {
+        return 11
+    } else if (randomCard > 10) {
+        return 10
+    } else {
+        return randomCard
+    }   
+}
 
 function startGame() {
+    isAlive = true
+    drawCard()
+    drawCard()
     renderGame()
 }
 
@@ -46,27 +56,27 @@ function renderGame() {
     sumEl.textContent = "Sum: " + sum
     cardEl.textContent = "Cards: " 
     for (let i = 0; i < cards.length; i++) {
-        console.log(cards[i])
         cardEl.textContent += cards[i] + " "
     }
-    if (sum <= 20) {
-    message = messageUnder
-} else if (sum === 21) {
-    message = messageWon
-    hasBlackJack = true
-} else {
-    message = messageOver
-    isAlive = false
-}
+        if (sum <= 20) {
+            message = messageUnder
+        }  
+        else if (sum === 21) {
+            message = messageWon
+            hasBlackJack = true
+        } 
+        else {
+            message = messageOver
+            isAlive = false
+    }
  messageEl.textContent = message
 }
 
 function drawCard() {
-    console.log("drawing Card")
-    let newCard = 2
+    let newCard = getRandomCard()
     sum += newCard
     cards.push(newCard)
-    startGame()
+    renderGame()
 }
 
 

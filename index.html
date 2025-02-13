@@ -12,18 +12,7 @@
     <script type="module" src="script.js"></script>
   </head>
   <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
     <main>
-      <h1>Number counter</h1>
-      <h3 id="number">0</h3>
-      <button onclick="addOne()">add one</button>
-      <br>
-      <button onclick="save()">Save</button>
-      <p id="savesPrev">Tidligere lagringer:</p>
-
       <section>
         <h1>BlackJack</h1>
         <p id="message-el">Start a new game?</p>
@@ -31,7 +20,13 @@
         <p id="sum-el">Sum:</p>
         <button onclick="startGame()">Start Game</button>
         <button onclick="drawCard()">Draw Card</button>
-
+      </section>
+      <section>
+        <h1>Number counter</h1>
+        <h3 id="number">0</h3>
+        <button onclick="addOne()">add one</button>
+        <button onclick="save()">Save</button>
+        <p id="savesPrev">Tidligere lagringer:</p>  
       </section>
       <script src="script.js"></script>
     </main>
